@@ -1,0 +1,153 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+html,body{width:1920px;height:1080px;overflow:hidden}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
+.g{position:absolute;width:1400px;height:1400px;border-radius:50%;filter:blur(120px)}
+.abs{position:absolute}
+#win{position:absolute;left:210px;top:190px;width:1500px;height:700px;border-radius:22px;will-change:transform}
+#win .strip{height:72px;padding:14px 16px 0;position:relative;background:#0A0815}
+#win .tab{position:absolute;top:14px;height:58px;border-radius:16px 16px 0 0;padding:17px 18px;font-size:20px;font-weight:600;color:#0D0B1A;white-space:nowrap;overflow:hidden;transform-origin:50% 100%}
+#win .bar{height:48px}
+#win .page{height:580px;padding:44px 56px}
+#win .page .l{height:18px;border-radius:9px;margin-bottom:22px;background:var(--lc,#2A2447)}
+#win .page .l.h{height:32px;width:40%;background:#3a3263}
+#stamp{right:70px;bottom:56px;font-size:64px;border-width:6px;padding:10px 30px;opacity:0}
+.fav{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:10px;vertical-align:-1px}
+.big{position:absolute;left:0;right:0;text-align:center;font-weight:800;letter-spacing:-4px;line-height:1}
+.hid{opacity:0}
+.card{position:absolute;width:640px;height:250px;background:var(--panel);border:1px solid var(--line);border-radius:28px;padding:36px 40px;overflow:hidden;box-shadow:0 24px 60px #0008}
+.card:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:var(--c)}
+.card .ic{height:70px;font-size:64px;font-weight:800;color:var(--c);line-height:70px}
+.card h3{margin:10px 0 6px;font-size:40px;letter-spacing:-1px}.card p{margin:0;color:var(--muted);font-size:25px;line-height:1.35}
+.pill{position:absolute;padding:14px 30px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-weight:600;font-size:30px}
+</style></head><body>
+<div id="stage">
+ <div class="g" id="gA" style="background:#8B5CF645"></div><div class="g" id="gB" style="background:#FF4D8D30"></div><div class="g" id="gC" style="background:#FFB54725"></div>
+ <div class="big" id="sound" style="top:50px;font-size:96px;letter-spacing:-3px">Sound familiar?</div>
+ <div id="win" class="bw">
+  <div class="strip" id="strip"></div>
+  <div class="bar"><i></i><i></i><i></i><b></b></div>
+  <div class="page"><div class="l h"></div><div class="l" style="width:92%"></div><div class="l" style="width:78%"></div><div class="l" style="width:86%"></div><div class="l" style="width:60%"></div><div class="l" style="width:70%"></div><div class="l" style="width:30%"></div>
+   <div class="stamp" id="stamp">BLOCKED</div></div>
+ </div>
+ <div class="big" id="counter" style="top:930px;font-size:84px;letter-spacing:-2px"></div>
+ <div class="big" id="t1" style="top:120px;font-size:158px">Only three tabs.</div>
+ <div class="big grad" id="t2" style="top:290px;font-size:158px"><span class="grad">Total focus.</span></div>
+ <div class="big" id="t3" style="top:480px;font-size:40px;letter-spacing:0;font-weight:400;color:var(--muted)">Your browser isn't a hoarding space.</div>
+ <div id="keys" class="abs" style="left:0;right:0;top:90px;text-align:center"><span class="cap"><span class="key" id="k1" style="font-size:40px;padding:14px 34px">Ctrl</span><span class="key" id="k2" style="font-size:40px;padding:14px 34px">T</span></span></div>
+ <div class="pill" id="bp" style="right:110px;top:100px;font-size:34px;color:var(--pink);border-color:var(--pink)">Blocked today: <b id="bn">0</b></div>
+ <div class="big" id="c1" style="top:925px;font-size:74px">Try opening a <span class="grad">fourth.</span></div>
+ <div class="big" id="c2" style="top:925px;font-size:74px">Blocked. <span class="grad">Automatically.</span></div>
+ <div class="big" id="fh" style="top:120px;font-size:96px">Small. Sharp. <span class="grad">Honest.</span></div>
+ <div class="card" id="f0" style="left:300px;top:310px;--c:var(--violet)"><div class="ic">1–50</div><h3>Your limit</h3><p>Three by default. Adjust it to anything you need.</p></div>
+ <div class="card" id="f1" style="left:980px;top:310px;--c:var(--pink)"><div class="ic">↪</div><h3>Block or redirect</h3><p>Drop the new tab, or open its link right where you are.</p></div>
+ <div class="card" id="f2" style="left:300px;top:600px;--c:var(--amber)"><div class="ic"><svg width="56" height="64" viewBox="0 0 24 28"><path d="M12 1l9 4v7c0 6-4 11-9 14C7 23 3 18 3 12V5z" fill="none" stroke="#FFB547" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 13l3 3 5-6" fill="none" stroke="#FFB547" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Zero tracking</h3><p>No analytics, no accounts. Settings stay on your device.</p></div>
+ <div class="card" id="f3" style="left:980px;top:600px;--c:var(--violet)"><div class="ic" style="background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;color:transparent">&lt;/&gt;</div><h3>Free &amp; open source</h3><p>MIT licensed. Read it, fork it, make it better.</p></div>
+ <div class="abs" id="ring" style="left:810px;top:190px;width:300px;height:300px;border-radius:50%;border:4px solid var(--violet)"></div>
+ <img id="logo" class="abs logo" src="logo.svg" style="left:790px;top:170px;width:340px">
+ <div class="big" id="o1" style="top:540px;font-size:180px">Three<span class="grad">Tabs</span></div>
+ <div class="big" id="o2" style="top:745px;font-size:44px;letter-spacing:0;font-weight:600;color:var(--muted)">Only three tabs. Total focus.</div>
+ <div class="abs" id="pills" style="left:0;right:0;top:830px;text-align:center"><span class="pill" style="position:static;margin:0 8px;display:inline-block">Chrome</span><span class="pill" style="position:static;margin:0 8px;display:inline-block">Edge</span><span class="pill" style="position:static;margin:0 8px;display:inline-block">Firefox</span><span class="pill" style="position:static;margin:0 8px;display:inline-block">Brave</span></div>
+ <div class="pill" id="url" style="left:50%;top:940px;margin-left:-280px;width:560px;text-align:center;border-color:#8B5CF6;font-size:32px">mkalmousli.github.io/ThreeTabs</div>
+ <div class="abs" id="kofi" style="left:0;right:0;top:1022px;text-align:center;color:var(--muted);font-size:24px">Free forever · <img src="kofi.svg" width="22" height="22" style="filter:invert(1);vertical-align:-4px;opacity:.7"> ko-fi.com/mkalmousli</div>
+ <div class="abs" id="flash" style="inset:0;background:var(--pink);opacity:0;pointer-events:none"></div>
+ <div class="abs" id="wflash" style="inset:0;background:#fff;opacity:0;pointer-events:none"></div>
+ <div class="abs" id="fade" style="inset:0;background:#000;pointer-events:none"></div>
+</div>
+<script>
+const TL = window.TL;
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)), P=(t,a,b)=>clamp((t-a)/(b-a)), lerp=(a,b,x)=>a+(b-a)*x;
+const outCubic=x=>1-Math.pow(1-x,3), inOutCubic=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const outBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)}, inBack=x=>{const c1=1.70158,c3=c1+1;return c3*x*x*x-c1*x*x};
+const bump=(t,t0,k=8)=>t<t0?0:Math.exp(-(t-t0)*k);
+const $=id=>document.getElementById(id);
+const hex=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)), mix=(a,b,x)=>'rgb('+hex(a).map((v,i)=>Math.round(lerp(v,hex(b)[i],x))).join(',')+')';
+const NAMES=['YouTube','Reddit','Inbox (214)','Shopping','News','Maps','Recipes','Cat videos','Twitter','Docs','Stack Overflow','Weather','Sale!','Wiki','Netflix','Jira','Slack','Photos','Trailer','Flights','Podcast','Blog','Forum','Deals','Chat','Mail','Quiz','Music','Memes','Draft'];
+const CHAOS=['#3a3263','#4a2f5c','#2f3f63','#5c3350','#3b4a5e','#52405f'];
+const FINAL=['#8B5CF6','#FF4D8D','#FFB547'], FNAME=['Docs','Editor','Music'];
+const FAV=['#FF4D8D','#8B5CF6','#FFB547','#3EE0B0','#5AA9FF'];
+const strip=$('strip'), tabs=[];
+for(let i=0;i<TL.spawn.length;i++){const d=document.createElement('div');d.className='tab';d.innerHTML='<span class="fav" style="background:'+FAV[i%5]+'"></span><span class="lb">'+NAMES[i]+'</span>';strip.appendChild(d);tabs.push(d);}
+const intr=document.createElement('div');intr.className='tab';intr.style.background='#6B6785';intr.style.color='#fff';intr.textContent='+ New Tab';strip.appendChild(intr);
+const AV=1468;
+function render(t){
+  // background drift
+  $('gA').style.transform=`translate(${-300+40*Math.sin(t*.3)}px,${-700+30*Math.cos(t*.25)}px)`;
+  $('gB').style.transform=`translate(${1100+40*Math.cos(t*.27)}px,${-600}px)`;
+  $('gC').style.transform=`translate(${300+60*Math.sin(t*.2)}px,${700}px)`;
+  // chaos -> clean
+  const e=inOutCubic(P(t,TL.cut,TL.cut+.5));
+  let nf=0;TL.spawn.forEach(s=>nf+=clamp((t-s)/.12));nf=Math.max(nf,1);
+  const wc=Math.min(230,(AV-4*(nf-1))/nf);
+  let x=16;
+  tabs.forEach((d,i)=>{
+    const sp=clamp((t-TL.spawn[i])/.12), keep=i<3;
+    const w=keep?lerp(wc,230,e):lerp(wc,0,e), gap=keep?lerp(4,8,e):4*(1-e);
+    const col=keep?mix(CHAOS[i%6].length?CHAOS[i%6]:'#3a3263',FINAL[i],e):CHAOS[i%6];
+    d.style.left=x+'px';d.style.width=Math.max(w,0)+'px';d.style.background=col;
+    const lb=d.lastChild;lb.textContent=keep&&e>.5?FNAME[i]:NAMES[i];
+    d.style.display=w<2||sp<=0?'none':'block';
+    d.firstChild.style.display=w<70&&e<1?'none':'inline-block';lb.style.display=w<110&&e<1?'none':'inline';
+    if(keep&&e>.6){d.firstChild.style.display='none';d.style.color='#0D0B1A'}else{d.style.color='#e8e4ff'}
+    const fl=keep?1+.7*(bump(t,TL.arp[i],7)):1;d.style.filter=fl>1?`brightness(${fl})`:'none';
+    d.style.transform=`scaleY(${outCubic(sp)}) translateY(${(1-sp)*20}px)`;d.style.opacity=keep?1:1-e;
+    x+=Math.max(w,0)+gap;
+  });
+  // intruder
+  let iv=0,ix=0,iscale=0,irot=0;
+  TL.press.forEach((p,k)=>{const S=TL.stamps[k],a=p+.08;
+    if(t>=a&&t<S+.6){const g=P(t,a,a+.25),out=P(t,S+.25,S+.5);iscale=Math.max(iscale,outBack(g)*(1-inBack(out)));iv=1;
+      if(t>p+.45&&t<S){const u=t-(p+.45);ix=Math.sin(u*70)*10*(1-u/.4);irot=Math.sin(u*55)*3}}});
+  intr.style.left=(16+3*238)+'px';intr.style.width='230px';intr.style.display=iv?'block':'none';
+  intr.style.transform=`translateX(${ix}px) rotate(${irot}deg) scaleY(${Math.max(iscale,0)})`;
+  // window transform
+  let sc=1,ty=0,wop=1,bl=0;
+  let a=inOutCubic(P(t,3.9,4.7));sc=lerp(1,.62,a);ty=lerp(0,250,a);
+  let b=inOutCubic(P(t,TL.scene3,TL.scene3+.8));sc=lerp(sc,.86,b);ty=lerp(ty,40,b);
+  let c=inOutCubic(P(t,15.1,15.9));sc=lerp(sc,.72,c);ty=lerp(ty,-10,c);wop=1-c;bl=c*16;
+  let sx=0,sy=0,rot=0;
+  if(t<TL.cut){const k=nf/30;sx=Math.sin(t*61)*3*k;sy=Math.cos(t*47)*3*k;rot=Math.sin(t*33)*.25*k}
+  TL.stamps.forEach(S=>{if(t>=S){const u=t-S;const amp=14*Math.exp(-u*14);sx+=Math.sin(u*80)*amp;sy+=Math.cos(u*70)*amp*.6}});
+  const win=$('win');win.style.transform=`translate(${sx}px,${ty+sy}px) scale(${sc}) rotate(${rot}deg)`;win.style.opacity=wop;win.style.filter=bl?`blur(${bl}px)`:'none';
+  win.querySelectorAll('.page .l:not(.h)').forEach(l=>l.style.setProperty('--lc',mix('#4a2a4a','#2A2447',e)));
+  // stamp
+  let k=-1;TL.stamps.forEach((S,i)=>{if(t>=S)k=i});const st=$('stamp');
+  if(k>=0){const u=t-TL.stamps[k];const last=k===TL.stamps.length-1;
+    st.style.opacity=last?(1-P(t,14.5,14.9)):(1-P(u,.35,.5));
+    st.style.transform=`rotate(-8deg) scale(${lerp(2.8,1,outCubic(P(u,0,.14)))})`}else st.style.opacity=0;
+  // counters
+  const cnt=$('counter');cnt.style.opacity=1-P(t,3.2,3.45);
+  cnt.innerHTML=`<span style="color:var(--pink)">${Math.round(nf)}</span> tabs open. <span style="color:var(--muted)">Nothing finished.</span>`;
+  $('sound').style.opacity=P(t,.15,.5)*(1-P(t,3.0,3.3));$('sound').style.transform=`translateY(${(1-outCubic(P(t,.15,.6)))*30}px)`;
+  // title
+  const T=[['t1',TL.title,8.2],['t2',TL.title+.5,8.2],['t3',TL.title+1.4,8.2]];
+  T.forEach(([id,s,end])=>{const el=$(id);const i=outCubic(P(t,s,s+.7)),o=1-outCubic(P(t,end,end+.4));el.style.opacity=i*o;el.style.transform=`translateY(${(1-i)*50-(1-o)*30}px)`});
+  // keys & pill & captions
+  const kv=P(t,8.8,9.1)*(1-P(t,13.6,13.9));$('keys').style.opacity=kv;
+  let pr=0;TL.press.forEach(p=>{if(t>=p&&t<p+.2)pr=1});
+  ['k1','k2'].forEach(id=>{const el=$(id);el.style.transform=pr?'translateY(6px)':'none';el.style.borderBottomWidth=pr?'1px':'5px';el.style.boxShadow=pr?'0 0 40px #FF4D8D99':'0 8px 24px #0006';el.style.borderColor=pr?'#FF4D8D':'#4a4180'});
+  let n=0;TL.stamps.forEach(S=>{if(t>=S)n++});$('bn').textContent=n;
+  let pb=0;TL.stamps.forEach(S=>pb=Math.max(pb,bump(t,S,10)));
+  $('bp').style.opacity=P(t,10.0,10.2)*(1-P(t,14.6,14.9));$('bp').style.transform=`scale(${1+.18*pb})`;
+  $('c1').style.opacity=P(t,8.8,9.2)*(1-P(t,9.9,10.1));$('c1').style.transform=`translateY(${(1-outCubic(P(t,8.8,9.3)))*30}px)`;
+  $('c2').style.opacity=P(t,10.2,10.6)*(1-P(t,14.5,14.9));$('c2').style.transform=`translateY(${(1-outCubic(P(t,10.2,10.7)))*30}px)`;
+  // features
+  const fo=1-P(t,20.9,21.3);
+  const fh=$('fh');fh.style.opacity=P(t,15.2,15.6)*fo;fh.style.transform=`translateY(${(1-outCubic(P(t,15.2,15.7)))*30-(1-fo)*30}px)`;
+  TL.feats.forEach((s,i)=>{const el=$('f'+i),g=P(t,s,s+.55);el.style.opacity=clamp(g*2)*fo;el.style.transform=`translateY(${(1-outBack(g))*90-(1-fo)*40}px) scale(${lerp(.92,1,outBack(g))})`});
+  // outro
+  const O=TL.outro, lg=P(t,O+.1,O+.8);
+  $('logo').style.opacity=clamp(lg*3);$('logo').style.transform=`scale(${lerp(.3,1,outBack(lg))}) rotate(${(1-outCubic(lg))*-12}deg)`;
+  const rp=P(t,O+.1,O+1.4);$('ring').style.opacity=(1-rp)*.8*(t>=O?1:0);$('ring').style.transform=`scale(${lerp(.9,3.6,outCubic(rp))})`;
+  const o1=outCubic(P(t,O+.7,O+1.3));$('o1').style.opacity=o1;$('o1').style.transform=`translateY(${(1-o1)*40}px)`;
+  const o2=outCubic(P(t,O+1.0,O+1.6));$('o2').style.opacity=o2;$('o2').style.transform=`translateY(${(1-o2)*30}px)`;
+  const pl=$('pills').children;TL.pills.forEach((s,i)=>{const g=outBack(P(t,s,s+.35));pl[i].style.opacity=clamp(g*3);pl[i].style.transform=`translateY(${(1-g)*30}px) scale(${lerp(.8,1,g)})`});
+  const u=outCubic(P(t,TL.url,TL.url+.6));$('url').style.opacity=u;$('url').style.transform=`translateY(${(1-u)*30}px)`;
+  $('kofi').style.opacity=P(t,25.0,25.6);
+  // flashes + fades
+  let fl=0;TL.stamps.forEach(S=>fl=Math.max(fl,.16*bump(t,S,16)));$('flash').style.opacity=fl;
+  $('wflash').style.opacity=.28*bump(t,TL.cut,9)+.2*bump(t,O,7);
+  $('fade').style.opacity=Math.max(1-P(t,0,.35),P(t,27.3,28));
+}
+window.render=render;render(0);
+</script></body></html>

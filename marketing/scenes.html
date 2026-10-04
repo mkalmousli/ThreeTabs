@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="common.css">
+<style>
+body{position:relative;overflow:hidden}
+.t{position:absolute;left:0;right:0;text-align:center}
+h1{margin:0;font-size:72px;line-height:1.02;letter-spacing:-2.5px;font-weight:800}
+h2{margin:0;font-size:58px;line-height:1.05;letter-spacing:-2px;font-weight:800}
+p.s{color:var(--muted);font-size:24px;line-height:1.45;margin:18px 0 0}
+.abs{position:absolute}
+iframe{border:0;background:transparent}
+.frame{position:absolute;border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px #000a,0 0 90px #8B5CF633}
+.pill{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-weight:600;font-size:22px;margin:6px}
+.col{position:absolute;top:300px;width:340px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px;overflow:hidden}
+.col:before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--c)}
+.col h3{font-size:30px;margin:6px 0 8px;letter-spacing:-.5px}.col p{margin:0;color:var(--muted);font-size:19px;line-height:1.45}
+.col .big{font-size:56px;font-weight:800;color:var(--c)}
+</style></head><body>
+<script>
+const Q = new URLSearchParams(location.search), S = Q.get('s');
+const browser = (o) => `
+<div class="bw" style="width:${o.w}px;${o.style||''}">
+  <div class="strip"><div class="tab v">Docs</div><div class="tab p">Editor</div><div class="tab a">Music</div>
+  ${o.intruder?'<div class="tab g" style="position:absolute;left:'+(12+3*156)+'px;top:10px;transform:translateX(-4px) rotate(-2deg);opacity:.9">+ New Tab</div>':''}</div>
+  <div class="bar"><i></i><i></i><i></i><b></b></div>
+  <div class="page" style="height:${o.h}px"><div class="l h"></div><div class="l" style="width:92%"></div><div class="l" style="width:78%"></div><div class="l" style="width:85%"></div><div class="l" style="width:40%"></div>
+  ${o.stamp?'<div class="stamp" style="right:40px;bottom:34px;font-size:'+(o.sf||30)+'px">BLOCKED</div>':''}</div>
+</div>`;
+const scenes = {
+ s1:{w:1280,h:800,html:`<div class="glow"></div>
+  <div class="t" style="top:70px"><h1>Only three tabs.<br><span class="grad">Total focus.</span></h1><p class="s">Your browser isn't a hoarding space.</p></div>
+  <div class="abs" style="left:150px;top:410px">${browser({w:980,h:260,intruder:1,stamp:1,sf:40})}</div>`},
+ s2:{w:1280,h:800,html:`<div class="glow"></div>
+  <div class="abs" style="left:90px;top:230px;width:560px"><h2>Always know<br>where you <span class="grad">stand.</span></h2><p class="s">Three slots, one glance. Your popup shows what's open and what's been turned away today.</p></div>
+  <div class="frame" style="left:760px;top:170px;width:416px;height:340px"><iframe src="../extension/pages/popup.html?tabs=3&blocked=127&today=9" style="width:260px;height:325px;transform:scale(1.6);transform-origin:0 0"></iframe></div>
+  <div class="abs" style="left:760px;top:540px;width:416px;color:var(--muted);font-size:18px;text-align:center">Quiet toolbar icon. No numbers, no nagging.</div>`},
+ s3:{w:1280,h:800,html:`<div class="glow"></div>
+  <div class="abs" style="left:90px;top:230px;width:480px"><h2>Make it <span class="grad">yours.</span></h2><p class="s">Any limit from 1 to 50. Count across all windows or per window. Block new tabs, or open the link right where you are.</p></div>
+  <div class="frame" style="left:700px;top:45px;width:500px;height:710px"><iframe src="../extension/pages/options.html" style="width:560px;height:795px;transform:scale(.893);transform-origin:0 0"></iframe></div>`},
+ s4:{w:1280,h:800,html:`<div class="glow"></div>
+  <div class="t" style="top:70px"><h1>Blocks new tabs.<br><span class="grad">Instantly.</span></h1></div>
+  <div class="abs" style="left:0;right:0;top:320px;text-align:center"><span class="cap"><span class="key">Ctrl</span><span class="key">T</span></span></div>
+  <div class="abs" style="left:240px;top:450px">${browser({w:800,h:200,intruder:1,stamp:1,sf:34})}</div>`},
+ s5:{w:1280,h:800,html:`<div class="glow"></div>
+  <div class="t" style="top:80px"><h1>Free. Open source.<br><span class="grad">Private.</span></h1></div>
+  <div class="col" style="left:90px;--c:var(--violet)"><div class="big">MIT</div><h3>Fully open</h3><p>Read it, fork it, improve it. A few hundred lines of plain JavaScript.</p></div>
+  <div class="col" style="left:470px;--c:var(--pink)"><div class="big">0</div><h3>Tracking</h3><p>No analytics, no accounts, no ads. Settings never leave your device.</p></div>
+  <div class="col" style="left:850px;--c:var(--amber)"><div class="big">5+</div><h3>Browsers</h3><p>Chrome, Edge, Brave, Opera, Vivaldi and Firefox.</p></div>
+  <div class="t" style="top:640px"><span class="pill">github.com/mkalmousli/ThreeTabs</span></div>`},
+ tile:{w:440,h:280,html:`<div class="glow"></div>
+  <img class="abs logo" src="logo.svg" style="left:34px;top:34px;width:70px">
+  <div class="abs" style="left:34px;top:122px;font-size:44px;font-weight:800;letter-spacing:-1.5px">Three<span class="grad">Tabs</span></div>
+  <div class="abs" style="left:34px;top:178px;color:var(--muted);font-size:19px">Only three tabs. Total focus.</div>
+  <div class="abs" style="left:34px;bottom:0;display:flex;gap:6px"><div style="width:100px;height:34px;background:var(--violet);border-radius:11px 11px 0 0"></div><div style="width:100px;height:34px;background:var(--pink);border-radius:11px 11px 0 0"></div><div style="width:100px;height:34px;background:var(--amber);border-radius:11px 11px 0 0"></div></div>`},
+ marquee:{w:1400,h:560,html:`<div class="glow"></div>
+  <img class="abs logo" src="logo.svg" style="left:80px;top:70px;width:84px">
+  <div class="abs" style="left:80px;top:180px;font-size:82px;line-height:1;font-weight:800;letter-spacing:-3px">Only three tabs.<br><span class="grad">Total focus.</span></div>
+  <div class="abs" style="left:80px;top:400px;color:var(--muted);font-size:28px">Free &amp; open source · Chrome · Edge · Firefox</div>
+  <div class="abs" style="left:760px;top:120px">${browser({w:600,h:230,intruder:1,stamp:1,sf:28,style:'transform:rotate(-2deg)'})}</div>`}
+};
+const sc = scenes[S];
+document.body.style.cssText = `width:${sc.w}px;height:${sc.h}px`;
+document.body.insertAdjacentHTML('beforeend', sc.html);
+</script></body></html>

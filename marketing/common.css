@@ -1,0 +1,21 @@
+@font-face{font-family:Inter;font-weight:400;src:url(fonts/inter-latin-400-normal.woff2)}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/inter-latin-600-normal.woff2)}
+@font-face{font-family:Inter;font-weight:800;src:url(fonts/inter-latin-800-normal.woff2)}
+:root{--bg:#0D0B1A;--panel:#17132B;--line:#2A2447;--text:#F4F1FF;--muted:#9A94B8;--violet:#8B5CF6;--pink:#FF4D8D;--amber:#FFB547}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);font-family:Inter,"DejaVu Sans",sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+.grad{background:linear-gradient(90deg,var(--violet),var(--pink),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.glow{position:absolute;inset:0;background:radial-gradient(40% 50% at 12% 0%,#8B5CF640,transparent),radial-gradient(35% 45% at 100% 20%,#FF4D8D30,transparent),radial-gradient(45% 45% at 50% 110%,#FFB54728,transparent)}
+/* browser mock */
+.bw{background:#120F24;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 80px #000a;overflow:hidden;position:relative}
+.bw .strip{height:54px;background:#0A0815;padding:10px 12px 0;display:flex;gap:6px;position:relative}
+.bw .tab{width:150px;height:44px;border-radius:12px 12px 0 0;padding:12px 14px;font-size:14px;font-weight:600;color:#0D0B1A;white-space:nowrap}
+.tab.v{background:var(--violet)}.tab.p{background:var(--pink)}.tab.a{background:var(--amber)}.tab.g{background:#6B6785;color:#fff}
+.bw .bar{height:40px;background:#17132B;display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid var(--line)}
+.bar i{width:10px;height:10px;border-radius:50%;background:var(--line)}.bar b{flex:1;height:22px;border-radius:11px;background:#0D0B1A;margin-left:10px}
+.bw .page{padding:28px 32px;position:relative}
+.page .l{height:12px;border-radius:6px;background:var(--line);margin-bottom:14px}.page .l.h{height:22px;width:50%;background:#3a3263}
+.stamp{position:absolute;border:4px solid var(--pink);color:var(--pink);font-weight:800;letter-spacing:4px;padding:6px 18px;border-radius:10px;transform:rotate(-8deg);font-size:30px;background:#0D0B1Acc}
+.cap{display:inline-flex;gap:6px;align-items:center}
+.key{background:linear-gradient(#2c2552,#1d1840);border:1px solid #4a4180;border-bottom-width:5px;border-radius:12px;padding:10px 22px;font-weight:600;font-size:28px;box-shadow:0 8px 24px #0006}
+.logo{border-radius:22%}

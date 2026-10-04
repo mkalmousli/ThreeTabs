@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1
+- Fix: the "update available" bar was always visible in the popup
+
 ## 1.1.0
 - Toolbar icon no longer shows numbers
 - Settings page always opens, even above the limit

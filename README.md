@@ -16,6 +16,9 @@
 - Never closes existing tabs, no tracking. The only network request is an optional daily check of the latest GitHub release (can be turned off)
 - Works on Chrome, Edge, Brave, Opera, Vivaldi and Firefox (Manifest V3)
 
+## Store assets
+Screenshots, promo tiles and the ad video live in [`store/`](store/); their sources and build scripts are in [`marketing/`](marketing/).
+
 ## Install (from source)
 **Chrome / Edge / Brave:** open `chrome://extensions`, enable *Developer mode*, click *Load unpacked*, and select the `extension` folder.
 
