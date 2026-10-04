@@ -22,6 +22,7 @@ h1 em{font-style:normal;background:linear-gradient(90deg,var(--violet),var(--pin
 .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn{padding:14px 26px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--panel)}
 .btn.main{background:linear-gradient(90deg,var(--violet),var(--pink));border:0;box-shadow:0 8px 30px #8B5CF655}
+.btn.kofi{background:#FF5E5B;border:0;color:#fff;display:inline-flex;gap:8px;align-items:center}.btn.kofi img{filter:invert(1)}
 .btn:hover{transform:translateY(-2px)}
 /* browser demo */
 .browser{max-width:760px;margin:56px auto 0;background:#120F24;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 80px #0008;overflow:hidden;text-align:left}
@@ -75,7 +76,7 @@ footer{padding:40px 0;text-align:center;color:var(--muted);font-size:14px}
 <div class="card"><h3>Block or redirect</h3><p>Drop the new tab, or load its link in the tab you came from.</p></div>
 <div class="card"><h3>Per-window or global</h3><p>Count across every window, or give each window its own budget.</p></div>
 <div class="card"><h3>Never touches your tabs</h3><p>Existing tabs are never closed. Only new ones are stopped.</p></div>
-<div class="card"><h3>Zero tracking</h3><p>No network requests, no analytics, no accounts. Settings stay on your device.</p></div>
+<div class="card"><h3>Zero tracking</h3><p>No analytics, no accounts. Settings stay on your device. The only request is an optional update check.</p></div>
 <div class="card"><h3>Every browser</h3><p>Chrome, Edge, Brave, Opera, Vivaldi and Firefox. One codebase.</p></div>
 </div></section>
 
@@ -85,6 +86,6 @@ footer{padding:40px 0;text-align:center;color:var(--muted);font-size:14px}
 <div class="card" style="--c:var(--amber)"><h3>Firefox</h3><ol><li>Clone the repo or download the ZIP</li><li>Open <code>about:debugging#/runtime/this-firefox</code></li><li><b>Load Temporary Add-on…</b></li><li>Pick <code>extension/manifest.json</code></li></ol></div>
 </div></section>
 
-<section><div class="cta"><h2>Free forever. MIT licensed.</h2><p class="sub" style="margin:0 auto 24px">Read it, fork it, improve it. The whole extension is a few hundred lines.</p><a class="btn main" href="https://github.com/mkalmousli/ThreeTabs">Star on GitHub</a></div></section>
-<footer>Made with focus · <a href="https://github.com/mkalmousli/ThreeTabs">mkalmousli/ThreeTabs</a></footer>
+<section><div class="cta"><h2>Free forever. MIT licensed.</h2><p class="sub" style="margin:0 auto 24px">Read it, fork it, improve it. The whole extension is a few hundred lines.</p><a class="btn main" href="https://github.com/mkalmousli/ThreeTabs">Star on GitHub</a> <a class="btn kofi" href="https://ko-fi.com/mkalmousli"><img src="assets/kofi.svg" alt="" width="18" height="18"> Support on Ko-fi</a></div></section>
+<footer>Made with focus · <a href="https://ko-fi.com/mkalmousli">Ko-fi</a> · <a href="https://github.com/mkalmousli/ThreeTabs">mkalmousli/ThreeTabs</a></footer>
 </div></body></html>

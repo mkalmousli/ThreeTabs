@@ -6,6 +6,7 @@ const DEFAULTS = {
   scope: "all",      // "all" = across every window, "window" = per window
   mode: "block",     // "block" = discard the new tab, "redirect" = load its URL in the tab you came from
   enabled: true,
+  checkUpdates: true,
   blocked: 0,
   blockedDay: "",
   blockedToday: 0,
@@ -82,3 +83,24 @@ api.storage.onChanged.addListener(updateBadge);
 api.runtime.onStartup.addListener(() => { graceUntil = Date.now() + STARTUP_GRACE_MS; updateBadge(); });
 api.runtime.onInstalled.addListener(updateBadge);
 updateBadge();
+
+// --- Update check (optional): compares against the latest GitHub release, at most once a day.
+const RELEASES_API = "https://api.github.com/repos/mkalmousli/ThreeTabs/releases/latest";
+const newer = (a, b) => {
+  const x = a.split(".").map(Number), y = b.split(".").map(Number);
+  for (let i = 0; i < 3; i++) if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+  return false;
+};
+async function checkForUpdate() {
+  const { checkUpdates = true } = await api.storage.local.get("checkUpdates");
+  if (!checkUpdates) return api.storage.local.set({ updateAvailable: "" });
+  try {
+    const res = await fetch(RELEASES_API, { headers: { Accept: "application/vnd.github+json" } });
+    if (!res.ok) return;
+    const latest = String((await res.json()).tag_name || "").replace(/^v/, "");
+    const current = api.runtime.getManifest().version;
+    await api.storage.local.set({ updateAvailable: newer(latest, current) ? latest : "" });
+  } catch {} // offline: try again next time
+}
+api.alarms.create("update-check", { delayInMinutes: 1, periodInMinutes: 24 * 60 });
+api.alarms.onAlarm.addListener((a) => a.name === "update-check" && checkForUpdate());

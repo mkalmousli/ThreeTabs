@@ -1,6 +1,6 @@
 const api = globalThis.browser ?? globalThis.chrome;
 const $ = (id) => document.getElementById(id);
-const DEF = { limit: 3, scope: "all", mode: "block", enabled: true };
+const DEF = { limit: 3, scope: "all", mode: "block", enabled: true, checkUpdates: true, updateAvailable: "" };
 let t;
 function saved() { $("saved").textContent = "Saved ✓"; clearTimeout(t); t = setTimeout(() => ($("saved").textContent = ""), 1200); }
 function setLimit(v) {
@@ -11,6 +11,9 @@ function setLimit(v) {
 (async () => {
   const s = await api.storage.local.get(DEF);
   $("limit").value = s.limit; $("scope").value = s.scope; $("mode").value = s.mode; $("enabled").checked = s.enabled;
+  $("checkUpdates").checked = s.checkUpdates;
+  $("ver").textContent = "Version " + api.runtime.getManifest().version + (s.updateAvailable ? ` · update ${s.updateAvailable} available` : "");
+  $("checkUpdates").onchange = () => api.storage.local.set({ checkUpdates: $("checkUpdates").checked }).then(saved);
   $("limit").onchange = () => setLimit($("limit").value);
   $("minus").onclick = () => setLimit(+$("limit").value - 1);
   $("plus").onclick = () => setLimit(+$("limit").value + 1);

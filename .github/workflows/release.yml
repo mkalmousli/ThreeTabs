@@ -1,0 +1,17 @@
+name: Release
+on:
+  push:
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check tag matches manifest version
+        run: test "v$(jq -r .version extension/manifest.json)" = "${GITHUB_REF_NAME}"
+      - run: ./scripts/package.sh
+      - run: gh release create "$GITHUB_REF_NAME" dist/threetabs.zip --title "ThreeTabs ${GITHUB_REF_NAME#v}" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

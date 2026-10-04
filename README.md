@@ -13,7 +13,7 @@
 - Count across all windows or per window
 - Quiet by design: no numbers on the toolbar icon. A popup shows your slots and a blocked-tabs counter
 - Settings always open, even when you're over the limit
-- Never closes existing tabs, no tracking, no network requests
+- Never closes existing tabs, no tracking. The only network request is an optional daily check of the latest GitHub release (can be turned off)
 - Works on Chrome, Edge, Brave, Opera, Vivaldi and Firefox (Manifest V3)
 
 ## Install (from source)
@@ -26,6 +26,13 @@ To build a ZIP: `./scripts/package.sh` (outputs `dist/threetabs.zip`).
 ## Permissions
 - `tabs`: count tabs and close the extra one
 - `storage`: save your settings locally
+- `alarms`: schedule the daily update check
+
+## Support
+ThreeTabs is free. If it helps you focus, you can [support it on Ko-fi](https://ko-fi.com/mkalmousli).
+
+## Versioning
+[Semantic Versioning](https://semver.org). See [CHANGELOG.md](CHANGELOG.md). Pushing a `vX.Y.Z` tag builds and publishes a release automatically.
 
 ## License
 [MIT](LICENSE)

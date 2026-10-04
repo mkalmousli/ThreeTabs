@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "ThreeTabs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Focus by force: limit your browser to just 3 tabs (adjustable) and block the rest.",
   "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
-  "permissions": ["tabs", "storage"],
+  "permissions": ["tabs", "storage", "alarms"],
   "background": {
     "service_worker": "background.js",
     "scripts": ["background.js"]

@@ -1,6 +1,6 @@
 const api = globalThis.browser ?? globalThis.chrome;
 (async () => {
-  const s = await api.storage.local.get({ limit: 3, scope: "all", enabled: true, blocked: 0, blockedToday: 0, blockedDay: "" });
+  const s = await api.storage.local.get({ updateAvailable: "", limit: 3, scope: "all", enabled: true, blocked: 0, blockedToday: 0, blockedDay: "" });
   const win = await api.windows.getCurrent();
   const tabs = await api.tabs.query(s.scope === "window" ? { windowId: win.id } : {});
   const limit = Math.max(1, parseInt(s.limit, 10) || 3);
@@ -15,6 +15,7 @@ const api = globalThis.browser ?? globalThis.chrome;
   const today = s.blockedDay === new Date().toISOString().slice(0, 10) ? s.blockedToday : 0;
   document.getElementById("today").textContent = today;
   document.getElementById("total").textContent = s.blocked;
+  if (s.updateAvailable) { const u = document.getElementById("upd"); u.textContent = `Update ${s.updateAvailable} available`; u.hidden = false; }
   const cb = document.getElementById("enabled");
   cb.checked = s.enabled;
   cb.onchange = () => api.storage.local.set({ enabled: cb.checked });
