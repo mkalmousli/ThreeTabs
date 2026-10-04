@@ -18,5 +18,5 @@ const api = globalThis.browser ?? globalThis.chrome;
   const cb = document.getElementById("enabled");
   cb.checked = s.enabled;
   cb.onchange = () => api.storage.local.set({ enabled: cb.checked });
-  document.getElementById("opts").onclick = (e) => { e.preventDefault(); api.runtime.openOptionsPage(); window.close(); };
+  document.getElementById("opts").onclick = async (e) => { e.preventDefault(); await api.storage.local.set({ allowUntil: Date.now() + 3000 }); api.runtime.openOptionsPage(); window.close(); };
 })();

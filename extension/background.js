@@ -41,18 +41,12 @@ async function flash(text) {
 }
 
 async function updateBadge() {
-  const s = await getSettings();
-  if (!s.enabled) {
-    await api.action.setBadgeText({ text: "off" });
+  // Intentionally number-free: a counter in the toolbar is a distraction.
+  const { enabled = true } = await api.storage.local.get("enabled");
+  try {
+    await api.action.setBadgeText({ text: enabled ? "" : "off" });
     await api.action.setBadgeBackgroundColor({ color: "#6B6785" });
-    return;
-  }
-  let win;
-  try { win = await api.windows.getLastFocused(); } catch {}
-  const n = await countTabs(s.scope, win?.id);
-  await api.action.setBadgeText({ text: `${n}/${s.limit}` });
-  await api.action.setBadgeBackgroundColor({ color: n >= s.limit ? "#FF4D8D" : "#8B5CF6" });
-  try { await api.action.setBadgeTextColor?.({ color: "#FFFFFF" }); } catch {}
+  } catch {}
 }
 
 api.tabs.onCreated.addListener(async (tab) => {
@@ -60,10 +54,14 @@ api.tabs.onCreated.addListener(async (tab) => {
   const s = await getSettings();
   if (!s.enabled) return updateBadge();
 
+  const target = tab.pendingUrl || tab.url || "";
+  if (target.startsWith(api.runtime.getURL(""))) return updateBadge(); // our own settings page is always allowed
+  const { allowUntil = 0 } = await api.storage.local.get("allowUntil");
+  if (Date.now() < allowUntil) return updateBadge(); // popup is opening settings
+
   const n = await countTabs(s.scope, tab.windowId);
   if (n <= s.limit) return updateBadge();
 
-  const target = tab.pendingUrl || tab.url || "";
   try {
     if (s.mode === "redirect" && tab.openerTabId != null && /^https?:/i.test(target)) {
       await api.tabs.update(tab.openerTabId, { url: target, active: true });

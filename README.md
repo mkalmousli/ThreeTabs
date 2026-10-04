@@ -11,7 +11,8 @@
 - Blocks new tabs and windows when the limit is reached
 - Optional redirect: open the blocked link in the tab you came from
 - Count across all windows or per window
-- Toolbar badge showing `open/limit`, plus a popup with a blocked-tabs counter
+- Quiet by design: no numbers on the toolbar icon. A popup shows your slots and a blocked-tabs counter
+- Settings always open, even when you're over the limit
 - Never closes existing tabs, no tracking, no network requests
 - Works on Chrome, Edge, Brave, Opera, Vivaldi and Firefox (Manifest V3)
 
