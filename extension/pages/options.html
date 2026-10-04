@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ThreeTabs settings</title><link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="options.css"></head>
+<body><div class="tri"></div>
+<main>
+  <h1>Three<span>Tabs</span> settings</h1>
+  <section>
+    <label for="limit">Maximum tabs</label>
+    <div class="stepper"><button id="minus" aria-label="fewer">−</button><input id="limit" type="number" min="1" max="50"><button id="plus" aria-label="more">+</button></div>
+    <small>Default is 3. Existing tabs are never closed; only new ones are stopped.</small>
+  </section>
+  <section>
+    <label for="scope">Count tabs</label>
+    <select id="scope"><option value="all">Across all windows</option><option value="window">Per window</option></select>
+  </section>
+  <section>
+    <label for="mode">When the limit is reached</label>
+    <select id="mode"><option value="block">Block the new tab</option><option value="redirect">Open links in the current tab instead</option></select>
+  </section>
+  <section>
+    <label class="inline"><input type="checkbox" id="enabled"> Focus mode enabled</label>
+  </section>
+  <p id="saved" aria-live="polite"></p>
+  <footer>Free &amp; open source (MIT) · <a href="https://github.com/mkalmousli/ThreeTabs">GitHub</a></footer>
+</main><script src="options.js"></script></body></html>

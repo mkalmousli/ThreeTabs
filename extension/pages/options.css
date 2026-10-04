@@ -1,0 +1,10 @@
+main{max-width:480px;margin:40px auto;padding:0 20px}
+h1{font-size:26px;margin:0 0 24px}h1 span{color:var(--pink)}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+label{display:block;font-weight:600;margin-bottom:8px}label.inline{display:flex;gap:10px;align-items:center;margin:0}
+small{display:block;color:var(--muted);margin-top:8px}
+select,input[type=number]{background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 10px;width:100%}
+.stepper{display:flex;gap:8px}.stepper input{text-align:center;font-size:18px}
+.stepper button{width:44px;border:0;border-radius:9px;background:var(--violet);font-size:20px;cursor:pointer}
+input[type=checkbox]{accent-color:var(--violet);width:18px;height:18px}
+#saved{color:var(--amber);height:20px}footer{color:var(--muted);font-size:12px}a{color:var(--violet)}

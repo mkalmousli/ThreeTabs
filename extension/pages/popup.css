@@ -1,0 +1,12 @@
+body{width:260px}
+main{padding:16px}
+.slots{display:flex;gap:6px;margin-bottom:10px}
+.slot{flex:1;height:34px;border-radius:9px 9px 3px 3px;background:var(--panel);border:1px dashed var(--line)}
+.slot.on:nth-child(3n+1){background:var(--violet);border:0}
+.slot.on:nth-child(3n+2){background:var(--pink);border:0}
+.slot.on:nth-child(3n){background:var(--amber);border:0}
+.count{margin:0 0 12px;font-size:15px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.stat{color:var(--muted);margin:4px 0 12px;font-size:12px}
+a{color:var(--violet);text-decoration:none;font-weight:600}
+input[type=checkbox]{accent-color:var(--violet);width:18px;height:18px}
