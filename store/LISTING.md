@@ -57,7 +57,7 @@ If ThreeTabs helps you focus, you can support it on Ko-fi: https://ko-fi.com/mka
 - Screenshots (1280x800): store/screenshot-1-hero.png ... screenshot-5-foss.png (upload in this order)
 - Small promo tile: store/promo-small-440x280.png
 - Large promo tile: store/promo-large-1400x560.png
-- Promo video (YouTube URL): https://www.youtube.com/watch?v=TkYOS1_UUMo (source file kept in store/threetabs-ad.mp4)
+- Promo video (YouTube URL): https://www.youtube.com/watch?v=lRio6gZWMn0 (source file kept in store/threetabs-ad.mp4)
 
 ## Additional fields
 - Official URL: none (only choose one if you verify the site in Search Console; github.io pages cannot be verified, so leave it as "None")
