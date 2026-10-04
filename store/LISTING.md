@@ -32,7 +32,6 @@ FEATURES
 • Never closes tabs you already have open. Only new ones are stopped.
 • Focus mode toggle for the moments you really need more tabs
 • Settings always open, even when you are over the limit
-• Works in Chrome, Edge, Brave, Opera, Vivaldi (and Firefox)
 
 PRIVATE BY DESIGN
 • No analytics, no tracking, no ads, no accounts
@@ -75,6 +74,9 @@ If ThreeTabs helps you focus, you can support it on Ko-fi: https://ko-fi.com/mka
 - Host permissions: none. Remote code: No.
 - Data collected: none (leave all boxes unchecked). Certify the three disclosures (no sale, no unrelated use, no creditworthiness use).
 - Privacy policy URL: https://mkalmousli.github.io/ThreeTabs/privacy.html
+
+## Review notes
+- Rejected once for keyword spam (ref. Yellow Argon): the line listing browser names was removed. Keep the listing free of keyword lists; do not name other browsers in the description.
 
 ## Short answers to common reviewer questions
 - Does it use remote code? No. All code is in the package.
