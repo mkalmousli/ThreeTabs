@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — ThreeTabs</title><link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="legal.css"></head><body>
+<div class="tri"></div><main>
+<nav><a href="./">← ThreeTabs</a></nav>
+<h1>Privacy Policy</h1><p class="meta">Last updated: 4 October 2026 · Applies to ThreeTabs 1.1.0 and later</p>
+<p class="tldr"><b>In short:</b> ThreeTabs has no analytics, no tracking, no ads, no accounts, and no server of its own. It never reads or sends your browsing history. Your settings stay on your device. The one network request it makes is an optional daily check of GitHub for a new version, which you can turn off.</p>
+
+<h2>1. Who we are</h2>
+<p>ThreeTabs is a free and open-source browser extension by <a href="https://github.com/mkalmousli">mkalmousli</a> (the "developer"). The source code is public at <a href="https://github.com/mkalmousli/ThreeTabs">github.com/mkalmousli/ThreeTabs</a>, so every claim here can be checked in the code.</p>
+
+<h2>2. Data the extension stores (locally only)</h2>
+<p>The extension saves the following in your browser's extension storage (<code>storage.local</code>). It never leaves your device and the developer cannot see it. If your browser syncs extension data, that is done by the browser, not by ThreeTabs.</p>
+<table>
+<tr><th>Data</th><th>Purpose</th></tr>
+<tr><td>Tab limit, count scope (all windows / per window), block mode, on/off, update-check preference</td><td>Your settings</td></tr>
+<tr><td>Number of tabs blocked (total, and today)</td><td>Shown in the popup. Just two numbers, with no record of which sites</td></tr>
+<tr><td>Latest known version number</td><td>To show "update available"</td></tr>
+<tr><td>A short-lived timestamp</td><td>To allow the settings page to open when you click "Settings"</td></tr>
+</table>
+<p>Uninstalling the extension deletes all of it.</p>
+
+<h2>3. Permissions and why</h2>
+<ul>
+<li><code>tabs</code>: to count open tabs and close a new tab when you are over the limit. The extension reads a new tab's address only to decide whether to redirect it (the "open in current tab" mode) and to recognise its own settings page. Addresses are used in memory at that moment and are <b>never stored, logged or transmitted</b>.</li>
+<li><code>storage</code>: to save the settings above.</li>
+<li><code>alarms</code>: to schedule the daily update check.</li>
+</ul>
+
+<h2>4. Network requests</h2>
+<p>The extension makes <b>one</b> kind of request: once a day it fetches <code>https://api.github.com/repos/mkalmousli/ThreeTabs/releases/latest</code> to see whether a newer version exists. The request carries no identifier and no personal data, but GitHub, like any web server, receives your IP address and standard request headers and handles them under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. You can turn it off in <i>Settings → Check GitHub for new versions</i>. With it off, the extension makes no network requests at all.</p>
+
+<h2>5. What we do not do</h2>
+<ul>
+<li>No analytics, telemetry, crash reporting, fingerprinting or advertising.</li>
+<li>No collection or sale of browsing history, tab titles, page content or personal data.</li>
+<li>No third-party code or remotely loaded scripts.</li>
+</ul>
+
+<h2>6. This website</h2>
+<p>This site is hosted on GitHub Pages. We run no analytics or cookies on it. GitHub, as the host, may process visitor IP addresses and keep server logs under its own policy. The site links to external services (GitHub, Ko-fi) that have their own privacy practices. If you click the Ko-fi link, any donation is handled entirely by <a href="https://ko-fi.com/home/privacy">Ko-fi</a>. The developer never sees your payment details.</p>
+
+<h2>7. Children</h2>
+<p>ThreeTabs collects no personal data from anyone, including children.</p>
+
+<h2>8. Changes</h2>
+<p>If this policy changes, the updated version and date will be published here and in the repository's history. A change that adds any data collection would require a new, clearly announced version.</p>
+
+<h2>9. Contact</h2>
+<p>Questions or concerns: open an issue at <a href="https://github.com/mkalmousli/ThreeTabs/issues">github.com/mkalmousli/ThreeTabs/issues</a>.</p>
+<footer><a href="terms.html">Terms of Use</a> · <a href="./">Home</a></footer>
+</main></body></html>

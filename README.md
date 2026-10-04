@@ -28,6 +28,9 @@ To build a ZIP: `./scripts/package.sh` (outputs `dist/threetabs.zip`).
 - `storage`: save your settings locally
 - `alarms`: schedule the daily update check
 
+## Privacy & terms
+No analytics, no tracking, no ads. Read the full [Privacy Policy](https://mkalmousli.github.io/ThreeTabs/privacy.html) and [Terms of Use](https://mkalmousli.github.io/ThreeTabs/terms.html).
+
 ## Support
 ThreeTabs is free. If it helps you focus, you can [support it on Ko-fi](https://ko-fi.com/mkalmousli).
 
