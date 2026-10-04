@@ -9,5 +9,5 @@
   Object.defineProperty(window, 'chrome', { value: {
     storage: { local: { get: async d => ({ ...d, ...store }), set: async o => Object.assign(store, o) } },
     windows: { getCurrent: async () => ({ id: 1 }) }, tabs: { query: async () => Array(n).fill({}) },
-    runtime: { openOptionsPage() {}, getManifest: () => ({ version: '1.1.0' }) } } });
+    runtime: { openOptionsPage() {}, getManifest: () => ({ version: '1.0.0' }) } } });
 })();
