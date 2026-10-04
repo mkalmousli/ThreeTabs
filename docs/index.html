@@ -14,7 +14,7 @@ body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradi
 a{color:inherit}.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
 nav .logo{display:flex;gap:10px;align-items:center;font-weight:800;font-size:20px;text-decoration:none}nav img{width:34px;height:34px}
-nav a.gh{font-size:15px;color:var(--muted);text-decoration:none}nav a.gh:hover{color:var(--text)}
+nav .links{display:flex;gap:22px}nav a.gh{font-size:15px;color:var(--muted);text-decoration:none}nav a.gh:hover{color:var(--text)}
 .hero{text-align:center;padding:56px 0 40px}
 h1{font-size:clamp(40px,8vw,84px);line-height:1.02;margin:0 0 20px;letter-spacing:-2px}
 h1 em{font-style:normal;background:linear-gradient(90deg,var(--violet),var(--pink),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -52,7 +52,7 @@ footer{padding:40px 0;text-align:center;color:var(--muted);font-size:14px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}.stamp{opacity:1}}
 </style></head><body>
 <div class="wrap">
-<nav><a class="logo" href="#"><img src="assets/logo.svg" alt="">ThreeTabs</a><a class="gh" href="https://github.com/mkalmousli/ThreeTabs">★ GitHub</a></nav>
+<nav><a class="logo" href="#"><img src="assets/logo.svg" alt="">ThreeTabs</a><span class="links"><a class="gh" href="https://al-mo.de">Portfolio</a><a class="gh" href="https://github.com/mkalmousli/ThreeTabs">★ GitHub</a></span></nav>
 <header class="hero">
   <h1>Only three tabs.<br><em>Total focus.</em></h1>
   <p>Your browser isn't a hoarding space. ThreeTabs caps your open tabs and quietly turns away the rest, so you finish the thing in front of you.</p>

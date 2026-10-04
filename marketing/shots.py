@@ -2,8 +2,8 @@ import sys, os
 from playwright.sync_api import sync_playwright
 from PIL import Image
 here = os.path.dirname(os.path.abspath(__file__)); out = os.path.join(here, 'out'); os.makedirs(out, exist_ok=True)
-jobs = [('s1','screenshot-1-hero'),('s2','screenshot-2-popup'),('s3','screenshot-3-settings'),('s4','screenshot-4-blocked'),('s5','screenshot-5-foss'),('tile','promo-small-440x280'),('marquee','promo-large-1400x560')]
-sizes = {'tile':(440,280),'marquee':(1400,560)}
+jobs = [('s1','screenshot-1-hero'),('s2','screenshot-2-popup'),('s3','screenshot-3-settings'),('s4','screenshot-4-blocked'),('s5','screenshot-5-foss'),('tile','promo-small-440x280'),('marquee','promo-large-1400x560'),('social','github-social-preview-1280x640')]
+sizes = {'tile':(440,280),'marquee':(1400,560),'social':(1280,640)}
 with sync_playwright() as p:
     b = p.chromium.launch(args=['--allow-file-access-from-files'])
     for s, name in jobs:
