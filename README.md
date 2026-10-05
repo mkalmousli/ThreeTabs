@@ -19,7 +19,10 @@
 ## Store assets
 Screenshots, promo tiles and the ad video live in [`store/`](store/); their sources and build scripts are in [`marketing/`](marketing/).
 
-## Install (from source)
+## Install
+**[Get ThreeTabs on the Chrome Web Store](https://chromewebstore.google.com/detail/threetabs/lkgbcfmfapocbabpnnemkmekmkffbeha)** (Chrome, Edge, Brave, Opera, Vivaldi).
+
+### From source
 **Chrome / Edge / Brave:** open `chrome://extensions`, enable *Developer mode*, click *Load unpacked*, and select the `extension` folder.
 
 **Firefox (121+):** open `about:debugging#/runtime/this-firefox`, click *Load Temporary Add-on…*, and select `extension/manifest.json`.
